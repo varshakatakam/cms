@@ -7,6 +7,7 @@ public class EmployeeDTO {
     private String email;
     private String department;
     private double salary;
+    private String employeeType;
 
     public Long getId() {
         return id;
@@ -48,7 +49,11 @@ public class EmployeeDTO {
         this.salary = salary;
     }
     public EmployeeDTO(){
-
     }
-    //Existing getter and setters
+    public String getEmployeeType(){
+        return employeeType;
+    }
+    public void setEmployeeType(String employeeType){
+        this.employeeType=employeeType;
+    }
 }

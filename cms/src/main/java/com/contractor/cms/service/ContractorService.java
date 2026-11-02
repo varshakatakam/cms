@@ -12,11 +12,11 @@ public class ContractorService {
         this.restTemplate = restTemplate;
     }
     public EmployeeDTO[] getAllEmployee(){
-        String url="http://localhost:8081/employees";
+        String url="http://localhost:8081/api/employees?employeeType=CONTRACTOR";
         return restTemplate.getForObject(url,EmployeeDTO[].class);
     }
     public EmployeeDTO getEmployeeById(Long id){
-        String url="http://localhost:8081/employees/"+id;
+        String url="http://localhost:8081/api/employees/" +id+"?employeeType=CONTRACTOR";
         return restTemplate.getForObject(url,EmployeeDTO.class);
     }
     public EmployeeDTO createEmployee(EmployeeDTO employeeDTO){
@@ -24,15 +24,15 @@ public class ContractorService {
         return restTemplate.postForObject(url,employeeDTO,EmployeeDTO.class);
     }
     public EmployeeDTO createEmployeeFromRequest(EmployeeRequestDTO request){
-        String url="http://localhost:8081/employees";
+        String url="http://localhost:8081/api/employees";
         return restTemplate.postForObject(url,request,EmployeeDTO.class);
     }
     public void updateEmployee(Long id,EmployeeDTO employeeDTO){
-        String url="http://localhost:8081/employees/"+id;
+        String url="http://localhost:8081/api/employees/"+id+"?employeeType=CONTRACTOR";
         restTemplate.put(url,employeeDTO);
     }
     public void deleteEmployee(Long id){
-        String url="http://localhost:8081/employees/"+id;
+        String url="http://localhost:8081/api/employees/"+id+"?employeeType=CONTRACTOR";
         restTemplate.delete(url);
     }
 }
